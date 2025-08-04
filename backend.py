@@ -9,6 +9,7 @@ from langchain.embeddings.base import Embeddings
 from langchain.memory import ConversationBufferMemory
 from langchain_community.chat_message_histories import SQLChatMessageHistory
 from langchain_core.messages import AIMessage, HumanMessage
+import logging 
 
 # === CONFIGURATION ===
 PDF_PATH = "testpdf.pdf"
@@ -86,10 +87,12 @@ class AnswerOnlyMemory(ConversationBufferMemory):
         super().save_context(inputs, outputs)
 
 memory = ConversationBufferMemory(
-    memory_key="chat_history",
+    # memory_key="chat_history",
     chat_memory=chat_history,
     return_messages=True
 )
+
+print(str(memory))
 
 
 # === STEP 8: Create Conversational Retrieval Chain ===

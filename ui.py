@@ -2,7 +2,7 @@
 
 import streamlit as st
 from langchain_core.messages import HumanMessage, AIMessage
-from test import get_response, get_chat_history
+from backend import get_response, get_chat_history
 
 # --- Page Setup ---
 st.set_page_config(page_title="PDF Chatbot", page_icon="💬")
