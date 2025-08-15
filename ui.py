@@ -25,13 +25,15 @@ for message in st.session_state.chat_history:
 user_query = st.chat_input("Ask something about the PDF...")
 
 if user_query:
-    # Add user message
+    # Add user message to UI and LangChain memory
     st.session_state.chat_history.append(HumanMessage(content=user_query))
     with st.chat_message("human"):
         st.markdown(user_query)
 
     # Get AI response
     ai_response = get_response(user_query)
+
+    # Add AI response to UI and LangChain memory
     st.session_state.chat_history.append(AIMessage(content=ai_response))
     with st.chat_message("ai"):
         st.markdown(ai_response)
